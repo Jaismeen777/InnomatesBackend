@@ -7,6 +7,7 @@ pandas
 matplotlib
 scikit-learn
 gunicorn 
+python_dotenv
 
 flask
 openai
@@ -16,6 +17,5 @@ librosa
 soundfile
 moviepy
 requests
-gtts 
 google-generativeai
 flask-cors
