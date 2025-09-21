@@ -7,7 +7,7 @@ pandas
 matplotlib
 scikit-learn
 gunicorn 
-python_dotenv
+python-dotenv
 
 flask
 openai
