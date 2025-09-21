@@ -122,21 +122,23 @@ def analyze():
         return jsonify({"error": str(e)}), 500
 
     # TEXT TO SPEECH
+    # TEXT TO SPEECH
     os.makedirs(app.static_folder, exist_ok=True)
-    audio_filename = f"{uuid.uuid4()}.mp3"
-    audio_path_out = os.path.join(app.static_folder, audio_filename)
+    from flask import send_file
+    import io
 
     tts = gTTS(reply)
-    tts.save(audio_path_out)
+    audio_bytes = io.BytesIO()
+    tts.write_to_fp(audio_bytes)
+    audio_bytes.seek(0)
 
-    return jsonify(
-        {
-            "transcript": user_text,
-            "response": reply,
-            "audio_url": f"/static/{audio_filename}",
-            "emotion": emotion,
-        }
+    return send_file(
+        audio_bytes,
+        mimetype="audio/mpeg",
+        as_attachment=False,
+        download_name="reply.mp3"
     )
+
 
 
 @app.route("/api/analyze-sentiment", methods=["POST"])
@@ -176,3 +178,6 @@ def analyze_face():
     finally:
         if os.path.exists(img_path):
             os.remove(img_path)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Render provides PORT env var
+    app.run(host="0.0.0.0", port=port, debug=True)
