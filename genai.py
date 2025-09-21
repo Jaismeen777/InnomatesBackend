@@ -178,6 +178,8 @@ def analyze_face():
     finally:
         if os.path.exists(img_path):
             os.remove(img_path)
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Render provides PORT env var
-    app.run(host="0.0.0.0", port=port, debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render provides PORT env
+    app.run(host="0.0.0.0", port=port)
+
