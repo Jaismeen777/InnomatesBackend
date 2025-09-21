@@ -176,6 +176,3 @@ def analyze_face():
     finally:
         if os.path.exists(img_path):
             os.remove(img_path)
-
-if __name__ == "__main__":
-    app.run(port=5000, debug=True)
