@@ -1,4 +1,4 @@
-tensorflow==2.15.0
+tensorflow-cpu==2.15.0
 keras==2.15.0
 deepface==0.0.79
 opencv-python
@@ -6,7 +6,7 @@ numpy
 pandas
 matplotlib
 scikit-learn
-gunicorn 
+gunicorn
 python-dotenv
 
 flask
@@ -16,6 +16,7 @@ gTTS
 librosa
 soundfile
 moviepy
+gtts
 requests
 google-generativeai
 flask-cors
