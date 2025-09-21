@@ -6,7 +6,7 @@ numpy
 pandas
 matplotlib
 scikit-learn
-guvicorn 
+gunicorn 
 
 flask
 openai
